@@ -9,6 +9,7 @@
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>
     <body>
+    <livewire:navbar/>
         {{ $slot }}
 
         @livewireScripts

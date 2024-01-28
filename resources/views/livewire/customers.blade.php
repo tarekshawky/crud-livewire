@@ -1,9 +1,20 @@
-<div class="max-w-7xl mx-auto px-4">
+<div class="max-w-7xl mx-auto px-4 mt-4">
     <div class="flex flex-col">
         <div class="-m-1.5 overflow-x-auto">
             <div class="p-1.5 min-w-full inline-block align-middle">
                 <div class="overflow-hidden">
-                    <button wire:navigate href="/customer/create" class="bg-red-900 p-4">Create Customer</button>
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <button wire:navigate href="/customer/create" class="bg-red-900 p-4">Create Customer</button>
+
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <div class="flex border-2 rounded">
+                                <input wire:model.live.debounce.150ms="search" type="text" class="px-4 py-2 w-80 text-gray-900" placeholder="Search...">
+                            </div>
+                        </div>
+                    </div>
+
                     <div>
                         @if (session()->has('success'))
                             <div class="">
@@ -41,6 +52,8 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $customers->links() }}
+
             </div>
         </div>
     </div>
